@@ -8,22 +8,23 @@ plotrix_3.7-8, dplyr_1.0.2, reshape2_1.4.4
 
 
 The folder "R" consists of:
-- 01_generate_rankdata.R
-  -  generates the rank data for 288 combinations of design and analysis options (rankdata.RData) and
+**01_generate_rankdata.R**
+-  generates the rank data for 288 combinations of design and analysis options (rankdata.RData) and
 for 774 combinations of design and analysis options (rankdata_datasample.RData)
 
-- 02_unfolding_models.R
--> generates three unfolding models: model 1 representing 288 combinations (unfolding_model.RData),
-model 2 representing 774 combinations with ibrier as performance measure (unfolding_model_datasample_ibrier.RData),
-and model 3 representing 774 combinations with cindex as performance measure (unfolding_model_datasample_cindex.RData)
--> generates goodness-of-fit measures and figures for all unfolding models
+**02_unfolding_models.R**
+- generates three unfolding models: 
+  - model 1 representing 288 combinations (unfolding_model.RData),
+  - model 2 representing 774 combinations with ibrier as performance measure (unfolding_model_datasample_ibrier.RData),
+  - model 3 representing 774 combinations with cindex as performance measure (unfolding_model_datasample_cindex.RData)
+- generates goodness-of-fit measures and figures for all unfolding models
 
-- 03_results.R 
--> generates the figures shown in the results section of this paper
+** 03_results.R **
+- generates the figures shown in the results section of this paper
 
-- helper_fcts_generate_rankdata.R
--> helper functions for 01_generate_rankdata.R
+**helper_fcts_generate_rankdata.R**
+- helper functions for 01_generate_rankdata.R
 
-- helper_fcts_results.R
--> helper functions for 03_results.R
+**helper_fcts_results.R**
+- helper functions for 03_results.R
 
