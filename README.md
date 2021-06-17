@@ -40,7 +40,7 @@ The folder `Data` consists of
 - the three unfolding models (see above): `Data/unfolding_model.RData`, `Data/unfolding_model_datasample_ibrier.RData`,
  `Data/unfolding_model_datasample_cindex.RData`
 
-## To reproduce the results 
+## Reproduce the results 
 - to reproduce the figures displayed in this paper, run `R/03_results.R` (and `R/02_unfolding_models.R` for the goodness-of-fit plots)
 - to reproduce the whole analysis, run 
   - `R/01_generate_rankdata.R`
