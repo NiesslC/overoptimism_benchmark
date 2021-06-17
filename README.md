@@ -9,7 +9,7 @@ plotrix_3.7-8, dplyr_1.0.2, reshape2_1.4.4
 
 The folder "R" consists of:
 - 01_generate_rankdata.R
---  generates the rank data for 288 combinations of design and analysis options (rankdata.RData) and
+ -  generates the rank data for 288 combinations of design and analysis options (rankdata.RData) and
 for 774 combinations of design and analysis options (rankdata_datasample.RData)
 
 - 02_unfolding_models.R
