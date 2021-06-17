@@ -1,5 +1,8 @@
-# Source code for the manuscript 'Over-optimism in benchmark studies and the multiplicity of design and analysis options when interpreting their results'
-## Nießl C., Herrmann M., Wiedemann C., Casalicchio G., Boulesteix A.-L. 
+# Over-optimism in benchmark studies and the multiplicity of design and analysis options when interpreting their results
+
+This repository contains material to reproduce the results of the manuscript 
+"Over-optimism in benchmark studies and the multiplicity of design and analysis options when interpreting their results"
+by Christina Nießl, Moritz Herrmann, Chiara Wiedemann, Giuseppe Casalicchio and Anne-Laure Boulesteix (https://arxiv.org/abs/2106.02447)
 
 The code has been written and executed using R version 4.0.2 (2020-06-22) (Platform: x86_64-w64-mingw32/x64 (64-bit))
 with package versions latex2exp_0.4.0, stringi_1.5.3, RColorBrewer_1.1-2 forcats_0.5.0, scales_1.1.1,      
@@ -12,7 +15,7 @@ The folder `R` consists of:
 
 **01_generate_rankdata.R**
 -  generates the rank data for 288 combinations of design and analysis options (`Data/rankdata.RData`) and
-for 774 combinations of design and analysis options (`Data/rankdata_datasample.RData)
+for 774 combinations of design and analysis options (`Data/rankdata_datasample.RData`)
 
 **02_unfolding_models.R**
 - generates three unfolding models: 
@@ -25,10 +28,10 @@ for 774 combinations of design and analysis options (`Data/rankdata_datasample.R
 - generates the figures shown in the results section of this paper
 
 **helper_fcts_generate_rankdata.R**
-- helper functions for `01_generate_rankdata.R`
+- helper functions for `Data/01_generate_rankdata.R`
 
 **helper_fcts_results.R**
-- helper functions for `03_results.R`
+- helper functions for `Data/03_results.R`
 
 ## Data 
 The folder `Data` consists of 
