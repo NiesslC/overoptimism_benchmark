@@ -17,7 +17,7 @@ datasample = rankdata_datasample_1_18_all[[1]]
 rankdata_datasample = rankdata_datasample_1_18_all[[2]]
 rm(rankdata_datasample_1_18_all)
 
-if (!dir.exists("Plots")) {dir.create("Plots")} # Folder for goodness of fit figures
+if (!dir.exists("Plots")) {dir.create("Plots")} # Check existence and create (sub)folder for goodness of fit figures
 if (!dir.exists("Plots/goodness_of_fit")) {dir.create("Plots/goodness_of_fit")} 
 
 # unfolding model with 288 combinations as subjects ------------------------------------------------

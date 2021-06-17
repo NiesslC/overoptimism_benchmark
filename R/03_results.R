@@ -22,7 +22,7 @@ load("./Data/unfolding_model.RData")
 load("./Data/unfolding_model_datasample_ibrier.RData")
 load("./Data/unfolding_model_datasample_cindex.RData")
 
-if (!dir.exists("Plots")) {dir.create("Plots")} # Folder for Plots
+if (!dir.exists("Plots")) {dir.create("Plots")} # Check existence and create folder for Plots 
 
 # overall variability (Figure 2 in Section 4.1) ----------------------------------------------------
 pdf("./Plots/overall_variability.pdf", width = 6, height = 6)
