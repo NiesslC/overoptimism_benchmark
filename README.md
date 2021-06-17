@@ -1,5 +1,5 @@
-Source code for manuscript 'Over-optimism in benchmark studies and the multiplicity of design and analysis options when interpreting their results'
-by Christina Nießl, Moritz Herrmann, Chiara Wiedemann, Giuseppe Casalicchio and Anne-Laure Boulesteix
+# Source code for the manuscript 'Over-optimism in benchmark studies and the multiplicity of design and analysis options when interpreting their results'
+by Nießl et al. 
 
 The code has been written and executed using R version 4.0.2 (2020-06-22) (Platform: x86_64-w64-mingw32/x64 (64-bit))
 with package versions latex2exp_0.4.0, stringi_1.5.3, RColorBrewer_1.1-2 forcats_0.5.0, scales_1.1.1,      
@@ -8,8 +8,9 @@ plotrix_3.7-8, dplyr_1.0.2, reshape2_1.4.4
 
 
 The folder "R" consists of:
+
 **01_generate_rankdata.R**
--  generates the rank data for 288 combinations of design and analysis options (rankdata.RData) and
+-  generates the rank data for 288 combinations of design and analysis options (`Data/rankdata.RData`) and
 for 774 combinations of design and analysis options (rankdata_datasample.RData)
 
 **02_unfolding_models.R**
@@ -19,7 +20,7 @@ for 774 combinations of design and analysis options (rankdata_datasample.RData)
   - model 3 representing 774 combinations with cindex as performance measure (unfolding_model_datasample_cindex.RData)
 - generates goodness-of-fit measures and figures for all unfolding models
 
-** 03_results.R **
+**03_results.R**
 - generates the figures shown in the results section of this paper
 
 **helper_fcts_generate_rankdata.R**
