@@ -11,6 +11,7 @@ library(stringi)
 library(ggrepel)
 library(latex2exp)
 library(forcats)
+library(shades)
 
 source("./R/helper_fcts_results.R")
 
@@ -22,7 +23,7 @@ load("./Data/unfolding_model.RData")
 load("./Data/unfolding_model_datasample_ibrier.RData")
 load("./Data/unfolding_model_datasample_cindex.RData")
 
-if (!dir.exists("Plots")) {dir.create("Plots")} # Check existence and create folder for Plots 
+if (!dir.exists("Plots")) {dir.create("Plots")} # Folder for Plots
 
 # overall variability (Figure 2 in Section 4.1) ----------------------------------------------------
 pdf("./Plots/overall_variability.pdf", width = 6, height = 6)
@@ -135,22 +136,25 @@ conf_persons$id = rownames(conf_persons)
 conf_persons$nrdatasets = factor(conf_persons$nrdatasets, levels = paste(1:18))
 
 
-colors <- colorRampPalette(c("blue", "yellow", "red"))(length(levels(conf_persons$nrdatasets)))
-hex <- rev(c("#FF0000", "#FFA500", "#FFFF00", "#008000", "#9999ff", "#000066"))
 pdf("./Plots/unfolding_datasample_ibrier.pdf", height = 6, width = 9)
 ggplot(conf_persons, aes(x = D2, y = D1)) +
   coord_fixed(ratio = 1)+
-  geom_point(aes(col = nrdatasets), alpha = 0.8)+
-  geom_text(data = conf_items, aes(x = D2, y = D1, label = learner.id), col = "grey29", vjust = -0.8)+
+  geom_point(aes(col = as.numeric(as.character(nrdatasets))), alpha = 0.6)+
+  geom_text_repel(data = conf_items, aes(x = D2, y = D1, label = learner.id), col = "grey29", 
+            min.segment.length = Inf,
+            nudge_y = 0.05)+
   geom_point(data = conf_items, aes(x = D2, y = D1), col = "grey29", shape = 17, size = 1.8)+
   labs(color = "Number of \ndata sets", x = "Dimension 1", y = "Dimension 2")+
   scale_x_continuous(expand = expansion(mult = 0.1))+
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(),
-        text = element_text(size = 13))
+        text = element_text(size = 13))+
+  scale_color_viridis_c(begin = 1, end = 0.35,
+                        breaks=c(1,5,10,15,18),
+                        limits=c(1,18))
 dev.off()
 
-rm(conf_items, conf_persons, hex,colors)
+rm(conf_items, conf_persons)
 # unfolding solution with sampled groups of data sets - cindex  ------------------------------------
 conf_items <- as.data.frame(unfold_ord_sample_cindex$conf.col)
 conf_items$learner.id = rownames(conf_items)
@@ -163,22 +167,26 @@ conf_persons$id = rownames(conf_persons)
 conf_persons$nrdatasets = factor(conf_persons$nrdatasets, levels = paste(1:18))
 
 
-colors <- colorRampPalette(c("blue", "yellow", "red"))(length(levels(conf_persons$nrdatasets)))
-hex <- rev(c("#FF0000", "#FFA500", "#FFFF00", "#008000", "#9999ff", "#000066"))
 pdf("./Plots/unfolding_datasample_cindex.pdf", height = 6, width = 9)
 ggplot(conf_persons, aes(x = D2, y = D1)) +
   coord_fixed(ratio = 1)+
-  geom_point(aes(col = nrdatasets), alpha = 0.8)+
-  geom_text(data = conf_items, aes(x = D2, y = D1, label = learner.id), col = "grey29", vjust = -0.8)+
+  geom_point(aes(col = as.numeric(as.character(nrdatasets))), alpha = 0.7)+
+  geom_text_repel(data = conf_items, aes(x = D2, y = D1, label = learner.id), col = "grey29",
+                  min.segment.length = Inf,
+                  nudge_y = 0.05)+
   geom_point(data = conf_items, aes(x = D2, y = D1), col = "grey29", shape = 17, size = 1.8)+
   labs(color = "Number of \ndata sets", x = "Dimension 1", y = "Dimension 2")+
   scale_x_continuous(expand = expansion(mult = 0.1))+
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(),
-        text = element_text(size = 13))
+        text = element_text(size = 13))+
+  scale_color_viridis_c(begin = 1, end = 0.3,
+                        breaks=c(1,5,10,15,18),
+                        limits=c(1,18))
+
 dev.off()
 
-rm(conf_items, conf_persons, hex, colors)
+rm(conf_items, conf_persons)
 
 
 

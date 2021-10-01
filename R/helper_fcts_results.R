@@ -281,8 +281,8 @@ plotstepwise_fct <- function(data, step_order, eval_free, eval_default = NULL){
 
   # Plot
   size_text = 13
-  cols = list("default" = "#F8766D", "grouping" = "#A3A500" , "eval_measure" = "#00BF7D",
-              "imputation_method" = "#00B0F6", "aggregation_method" = "orchid3")
+  cols = list("default" = "#D55E00", "grouping" = "#F0E442" , "eval_measure" = "#009E73",
+              "imputation_method" = "#0072B2", "aggregation_method" = "#CC79A7")
   cols_vec = unname(c(cols$default, cols[[step_order[1]]],cols[[step_order[2]]],cols[[step_order[3]]],cols[[step_order[4]]]))
   linesize = 0.9
   arrowsize = 1
@@ -356,11 +356,12 @@ plotunfolding_fct = function(unfold_solution, rankdata, params, var,
   conf_persons$aggregation_method = relevel(factor(conf_persons$aggregation_method), ref = default_aggregation)
   
   # plot parameters 
-  col1 <- c("#999999", "#E69F00", "#56B4E9", "#009E73",
-            "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
-  col2 = c(brewer.pal(3, "YlOrBr")[3:2], brewer.pal(3, "RdPu")[3:2],
-           brewer.pal(3, "Greens")[3:2], brewer.pal(3, "Blues")[3:2], "#999999")
-  col3 = c("#29BF12","#00A5CF","#DE1A1A", "#574AE2","#FFBF00")
+  col1 <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#CC79A7")
+  col2 <- c(col1[2],lightness(col1[2], 90),
+            col1[3],brewer.pal(5, "Blues")[2],
+            col1[4],brewer.pal(3, "Greens")[2],
+            col1[5],lightness(col1[5], 90),
+            "#999999")
   legend_position = "top"
   alpha_seg = 0.5
   expand_x =  c(0.15,0.15)
@@ -400,7 +401,7 @@ plotunfolding_fct = function(unfold_solution, rankdata, params, var,
       geom_point(data = conf_persons, aes(x = D1, y = D2, col = imputation_method)) +
       geom_point(data = conf_persons %>% filter(imputation_method %in% default_imputation),
                  aes(x = D1, y = D2), col = col1[1]) +
-      geom_text_repel(data = conf_items, aes(x = D1, y = D2, label = learner.id), col = "grey29", vjust = -0.8)+
+      geom_text_repel(data = conf_items, aes(x = D1, y = D2, label = learner.id), col = "grey29", segment.color = NA)+
       geom_point(data = conf_items, aes(x = D1, y = D2), col = "grey29", shape = shape_items, size = size_items )+
       scale_color_manual(name = "Option", values = col1, labels = c("threshold0.2", "random", "mean","weighted"))+
       theme(legend.margin=margin(0,0,0,0),
@@ -426,7 +427,7 @@ plotunfolding_fct = function(unfold_solution, rankdata, params, var,
       geom_point(data = conf_persons, aes(x = D1, y = D2, col = eval_measure))  +
       geom_point(data = conf_persons %>% filter(eval_measure %in% default_eval),
                  aes(x = D1, y = D2), col = col1[1]) +
-      geom_text_repel(data = conf_items, aes(x = D1, y = D2, label = learner.id), col = "grey29", vjust = -0.8) +
+      geom_text_repel(data = conf_items, aes(x = D1, y = D2, label = learner.id), col = "grey29", segment.color = NA) +
       geom_point(data = conf_items, aes(x = D1, y = D2), col = "grey29", shape = shape_items, size = size_items )+
       scale_color_manual(name = "Option", values = col1, labels = c("ibrier", "cindex"))+
       theme(legend.margin=margin(0,0,0,0),
@@ -455,7 +456,8 @@ plotunfolding_fct = function(unfold_solution, rankdata, params, var,
                          labels = c("clin large", "clin small", "n large", "n small ", 
                                     unname(TeX('$n_e$ large')), unname(TeX('$n_e$ small')), 
                                     "p large", "p small", "all"))+
-      geom_text_repel(data = conf_items, aes(x = D1, y = D2, label = learner.id), col = "grey29", vjust = -0.8) +
+      geom_text_repel(data = conf_items, aes(x = D1, y = D2, label = learner.id), col = "grey29", 
+                      segment.color = NA) +
       geom_point(data = conf_items, aes(x = D1, y = D2), col = "grey29", shape = shape_items, size = size_items )+
       theme(legend.margin=margin(0,0,0,0),
             legend.box.margin=margin(0,0,0,0),
@@ -482,7 +484,7 @@ plotunfolding_fct = function(unfold_solution, rankdata, params, var,
       geom_point(data = conf_persons, aes(x = D1, y = D2, col= aggregation_method))  +
       geom_point(data = conf_persons %>% filter(aggregation_method %in% default_aggregation),
                  aes(x = D1, y = D2), col = col1[1]) +
-      geom_text_repel(data = conf_items, aes(x = D1, y = D2, label = learner.id), col = "grey29", vjust = -0.8) +
+      geom_text_repel(data = conf_items, aes(x = D1, y = D2, label = learner.id), col = "grey29", segment.color = NA) +
       geom_point(data = conf_items, aes(x = D1, y = D2), col = "grey29", shape = shape_items, size = size_items )+
       scale_color_manual(name = "Option", values = col1)+
       theme(legend.margin=margin(0,0,0,0),
