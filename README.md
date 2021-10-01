@@ -7,7 +7,7 @@ by Christina Nießl, Moritz Herrmann, Chiara Wiedemann, Giuseppe Casalicchio and
 The code has been written and executed using R version 4.0.2 (2020-06-22) (Platform: x86_64-w64-mingw32/x64 (64-bit))
 with package versions latex2exp_0.4.0, stringi_1.5.3, RColorBrewer_1.1-2 forcats_0.5.0, scales_1.1.1,      
 tidyr_1.1.2, ggrepel_0.8.2, ggplot2_3.3.2, gridExtra_2.3, smacof_2.1-1, e1071_1.7-4, colorspace_1.4-1,
-plotrix_3.7-8, dplyr_1.0.2, reshape2_1.4.4.
+plotrix_3.7-8, dplyr_1.0.2, reshape2_1.4.4., shades_1.4.0
 
 
 ## R-Code 
