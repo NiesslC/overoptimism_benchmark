@@ -1,7 +1,6 @@
 # Over-optimism in benchmark studies and the multiplicity of design and analysis options when interpreting their results
 
-This repository contains material to reproduce the results of the manuscript 
-"Over-optimism in benchmark studies and the multiplicity of design and analysis options when interpreting their results"
+This repository contains material to reproduce the results of the article "Over-optimism in benchmark studies and the multiplicity of design and analysis options when interpreting their results"
 by Christina Nießl, Moritz Herrmann, Chiara Wiedemann, Giuseppe Casalicchio and Anne-Laure Boulesteix (https://wires.onlinelibrary.wiley.com/doi/full/10.1002/widm.1441).
 
 The code has been written and executed using R version 4.0.2 (2020-06-22) (Platform: x86_64-w64-mingw32/x64 (64-bit))
